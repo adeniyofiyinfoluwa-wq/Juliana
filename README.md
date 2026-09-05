@@ -7,5 +7,5 @@ Pinterest/editorial-inspired portfolio for Fiyin.
 - portrait-2.jpg
 - instagram.jpg
 - substack.jpg
-
+- YouTube png
 The portrait button swaps between the two portrait images.
