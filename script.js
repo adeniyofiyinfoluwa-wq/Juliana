@@ -1,0 +1,10 @@
+const $=s=>document.querySelector(s);
+const menu=$('.menu'),nav=document.querySelector('nav');
+menu?.addEventListener('click',()=>nav.classList.toggle('open'));
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const progress=$('#progress');
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h?(scrollY/h)*100:0)+'%'});
+const observer=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);observer.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
+const portraits=['assets/portrait-1.jpg','assets/portrait-2.jpg'];let i=0;
+$('#swapPortrait')?.addEventListener('click',()=>{i=(i+1)%portraits.length;const a=$('#aboutPortrait'),b=$('#heroPortrait');a.style.opacity=b.style.opacity=0;setTimeout(()=>{a.src=b.src=portraits[i];a.style.opacity=b.style.opacity=1},220)});
